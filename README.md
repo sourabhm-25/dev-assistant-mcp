@@ -28,6 +28,8 @@ A powerful AI-powered development assistant that integrates **GitHub, Jira, Slac
 - Context-aware conversations
 
 ## 🏗️ Architecture
+
+```mermaid
 flowchart TD
   subgraph Frontend["React Frontend (Vite)"]
     direction TB
@@ -58,29 +60,20 @@ flowchart TD
     DocsStorage["Docs Storage / API"]
   end
 
-  %% Frontend <> Orchestrator
   ChatMode -->|HTTP/REST| Orchestrator
   ManualMode -->|HTTP/REST| Orchestrator
-
-  %% Orchestrator internals
   Orchestrator -->|calls| Claude
   Orchestrator -->|orchestrates| Tools
   Tools --> MCPManager
-
-  %% MCP servers and external APIs
   MCPManager --> GHServer
   MCPManager --> JiraServer
   MCPManager --> SlackServer
   MCPManager --> DocsServer
-
   GHServer -->|API calls| GitHubAPI
   JiraServer -->|API calls| JiraAPI
   SlackServer -->|API calls| SlackAPI
   DocsServer -->|API calls| DocsStorage
-
-  %% Labels
-  classDef core fill:#f8f9fa,stroke:#333,stroke-width:1px;
-  class Frontend,Orchestrator,Integrations,ExternalAPIs core;
+```
 
 ## 🚀 Quick Start
 
