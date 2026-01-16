@@ -152,10 +152,17 @@ Access the application at: `http://localhost:5173`
 
 ## 🔑 Getting API Keys
 
-### 1. Anthropic API Key (Required)
-- Visit: https://console.anthropic.com/
-- Sign up and get $5 free credit
-- Create API key in settings
+### 1. You need at least ONE LLM API key to use this project.
+Supported providers:
+Claude (Anthropic)
+Gemini (Google)
+OpenAI
+Create an API key from any one provider and add it as an environment variable.
+ANTHROPIC_API_KEY=your_key_here
+# or
+GEMINI_API_KEY=your_key_here
+# or
+OPENAI_API_KEY=your_key_here
 
 ### 2. GitHub Personal Access Token (Required)
 - Go to: https://github.com/settings/tokens
