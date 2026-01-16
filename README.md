@@ -288,10 +288,10 @@ PR Number: 12345
 ![Chat Mode](Screenshots/chat-mode.jpeg)
 
 ### Manual Mode
-![Manual Mode](Screenshots/manual-mode.jpeg)
+![Manual Mode](Screenshots/manual-mode.png)
 
 ### Tool Execution
-![Tool Execution](Screenshots/tool-execution.jpeg)
+![Tool Execution](Screenshots/tool-execution.png)
 
 ## 🏆 Use Cases
 
