@@ -32,30 +32,30 @@ A powerful AI-powered development assistant that integrates **GitHub, Jira, Slac
 ```mermaid
 flowchart LR
   %% Frontend
-  FE[React Frontend<br/>(Vite)]
-  FE -->|Chat / Manual| API
+  FE["React Frontend (Vite)"]
+  FE -->|"Chat / Manual"| API
 
   %% Backend Core
-  API[Express API]
-  Claude[Claude API]
-  Orchestrator[Tool Orchestrator]
-  MCP[MCP Manager]
+  API["Express API"]
+  Claude["Claude API"]
+  Orchestrator["Tool Orchestrator"]
+  MCP["MCP Manager"]
 
   API --> Claude
   API --> Orchestrator
   Orchestrator --> MCP
 
   %% MCP Servers
-  MCP --> GH_MCP[GitHub MCP]
-  MCP --> Jira_MCP[Jira MCP]
-  MCP --> Slack_MCP[Slack MCP]
-  MCP --> Docs_MCP[Docs MCP]
+  MCP --> GH_MCP["GitHub MCP"]
+  MCP --> Jira_MCP["Jira MCP"]
+  MCP --> Slack_MCP["Slack MCP"]
+  MCP --> Docs_MCP["Docs MCP"]
 
   %% External APIs
-  GH_MCP --> GH_API[GitHub API]
-  Jira_MCP --> Jira_API[Jira API]
-  Slack_MCP --> Slack_API[Slack API]
-  Docs_MCP --> Docs_API[Docs API]
+  GH_MCP --> GH_API["GitHub API"]
+  Jira_MCP --> Jira_API["Jira API"]
+  Slack_MCP --> Slack_API["Slack API"]
+  Docs_MCP --> Docs_API["Docs API"]
 ```
 
 ## 🚀 Quick Start
