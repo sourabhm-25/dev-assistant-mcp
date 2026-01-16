@@ -30,49 +30,57 @@ A powerful AI-powered development assistant that integrates **GitHub, Jira, Slac
 ## 🏗️ Architecture
 
 ```mermaid
-flowchart TD
+flowchart LR
+  %% Frontend
   subgraph Frontend["React Frontend (Vite)"]
     direction TB
-    ChatMode["Chat Mode\n(AI Orchestration)"]
-    ManualMode["Manual Mode\n(Direct Exec)"]
+    Chat["Chat Mode"]
+    Manual["Manual Mode"]
   end
 
-  subgraph Orchestrator["Express Backend (Orchestrator)"]
+  %% Backend
+  subgraph Backend["Express Backend (Orchestrator)"]
     direction TB
-    Claude["Claude API\n(AI)"]
-    Tools["Tool Orchestration Logic"]
-    MCPManager["MCP Manager\n(Process Management)"]
+    Claude["Claude API"]
+    Tools["Tool Orchestration"]
+    MCP["MCP Manager"]
   end
 
-  subgraph Integrations["External MCP Servers"]
-    direction LR
-    GHServer["GitHub MCP Server"]
-    JiraServer["Jira MCP Server"]
-    SlackServer["Slack MCP Server"]
-    DocsServer["Docs MCP Server"]
+  %% MCP Servers
+  subgraph MCPServers["External MCP Servers"]
+    direction TB
+    GH["GitHub MCP"]
+    Jira["Jira MCP"]
+    Slack["Slack MCP"]
+    Docs["Docs MCP"]
   end
 
-  subgraph ExternalAPIs["External Vendor APIs"]
-    direction LR
-    GitHubAPI["GitHub API"]
+  %% External APIs
+  subgraph APIs["External APIs"]
+    direction TB
+    GHAPI["GitHub API"]
     JiraAPI["Jira API"]
     SlackAPI["Slack API"]
-    DocsStorage["Docs Storage / API"]
+    DocsAPI["Docs API"]
   end
 
-  ChatMode -->|HTTP/REST| Orchestrator
-  ManualMode -->|HTTP/REST| Orchestrator
-  Orchestrator -->|calls| Claude
-  Orchestrator -->|orchestrates| Tools
-  Tools --> MCPManager
-  MCPManager --> GHServer
-  MCPManager --> JiraServer
-  MCPManager --> SlackServer
-  MCPManager --> DocsServer
-  GHServer -->|API calls| GitHubAPI
-  JiraServer -->|API calls| JiraAPI
-  SlackServer -->|API calls| SlackAPI
-  DocsServer -->|API calls| DocsStorage
+  %% Flows
+  Chat --> Backend
+  Manual --> Backend
+
+  Backend --> Claude
+  Backend --> Tools
+  Tools --> MCP
+
+  MCP --> GH
+  MCP --> Jira
+  MCP --> Slack
+  MCP --> Docs
+
+  GH --> GHAPI
+  Jira --> JiraAPI
+  Slack --> SlackAPI
+  Docs --> DocsAPI
 ```
 
 ## 🚀 Quick Start
