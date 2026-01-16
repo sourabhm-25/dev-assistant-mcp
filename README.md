@@ -37,7 +37,7 @@ flowchart LR
 
   %% Backend Core
   API["Express API"]
-  Claude["Claude API"]
+  Claude["Gemini/Claude/OpenAI API"]
   Orchestrator["Tool Orchestrator"]
   MCP["MCP Manager"]
 
