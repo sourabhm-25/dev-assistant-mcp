@@ -152,17 +152,15 @@ Access the application at: `http://localhost:5173`
 
 ## 🔑 Getting API Keys
 
-### 1. You need at least ONE LLM API key to use this project.
-Supported providers:
-Claude (Anthropic)
-Gemini (Google)
-OpenAI
-Create an API key from any one provider and add it as an environment variable.
+### 1. LLM API Key (Required)
+You need **at least ONE** LLM API key to use this project.
+**Supported providers:** Claude (Anthropic), Gemini (Google), OpenAI
+Add **any one** of the following as an environment variable:
+```bash
 ANTHROPIC_API_KEY=your_key_here
-# or
 GEMINI_API_KEY=your_key_here
-# or
 OPENAI_API_KEY=your_key_here
+```
 
 ### 2. GitHub Personal Access Token (Required)
 - Go to: https://github.com/settings/tokens
