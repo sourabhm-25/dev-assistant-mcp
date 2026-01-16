@@ -285,13 +285,13 @@ PR Number: 12345
 ## 🎨 Screenshots
 
 ### Chat Mode
-![Chat Mode](screenshots/chat-mode.png)
+![Chat Mode](screenshots/chat-mode.jpeg)
 
 ### Manual Mode
-![Manual Mode](screenshots/manual-mode.png)
+![Manual Mode](screenshots/manual-mode.jpeg)
 
 ### Tool Execution
-![Tool Execution](screenshots/tool-execution.png)
+![Tool Execution](screenshots/tool-execution.jpeg)
 
 ## 🏆 Use Cases
 
