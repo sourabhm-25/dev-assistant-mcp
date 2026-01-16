@@ -32,55 +32,30 @@ A powerful AI-powered development assistant that integrates **GitHub, Jira, Slac
 ```mermaid
 flowchart LR
   %% Frontend
-  subgraph Frontend["React Frontend (Vite)"]
-    direction TB
-    Chat["Chat Mode"]
-    Manual["Manual Mode"]
-  end
+  FE[React Frontend<br/>(Vite)]
+  FE -->|Chat / Manual| API
 
-  %% Backend
-  subgraph Backend["Express Backend (Orchestrator)"]
-    direction TB
-    Claude["Claude API"]
-    Tools["Tool Orchestration"]
-    MCP["MCP Manager"]
-  end
+  %% Backend Core
+  API[Express API]
+  Claude[Claude API]
+  Orchestrator[Tool Orchestrator]
+  MCP[MCP Manager]
+
+  API --> Claude
+  API --> Orchestrator
+  Orchestrator --> MCP
 
   %% MCP Servers
-  subgraph MCPServers["External MCP Servers"]
-    direction TB
-    GH["GitHub MCP"]
-    Jira["Jira MCP"]
-    Slack["Slack MCP"]
-    Docs["Docs MCP"]
-  end
+  MCP --> GH_MCP[GitHub MCP]
+  MCP --> Jira_MCP[Jira MCP]
+  MCP --> Slack_MCP[Slack MCP]
+  MCP --> Docs_MCP[Docs MCP]
 
   %% External APIs
-  subgraph APIs["External APIs"]
-    direction TB
-    GHAPI["GitHub API"]
-    JiraAPI["Jira API"]
-    SlackAPI["Slack API"]
-    DocsAPI["Docs API"]
-  end
-
-  %% Flows
-  Chat --> Backend
-  Manual --> Backend
-
-  Backend --> Claude
-  Backend --> Tools
-  Tools --> MCP
-
-  MCP --> GH
-  MCP --> Jira
-  MCP --> Slack
-  MCP --> Docs
-
-  GH --> GHAPI
-  Jira --> JiraAPI
-  Slack --> SlackAPI
-  Docs --> DocsAPI
+  GH_MCP --> GH_API[GitHub API]
+  Jira_MCP --> Jira_API[Jira API]
+  Slack_MCP --> Slack_API[Slack API]
+  Docs_MCP --> Docs_API[Docs API]
 ```
 
 ## 🚀 Quick Start
